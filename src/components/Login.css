@@ -1,0 +1,68 @@
+.login {
+    max-width: 350px;
+    margin: 50px auto;
+}
+
+.login .header {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.login .mainPanel {
+    background-color: #fff;
+    border: 1px solid #d8dee2;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.login .loginButton {
+    width: 100%;
+    margin-top: 10px;
+    background-color: #586b90;
+    border-color: #586b90;
+    color: #fff;
+}
+
+.login label {
+    margin-bottom: 7px;
+    font-weight: 600;
+    text-align: left;
+    font-size: 14px;
+}
+
+.login a.forgotPass {
+    font-size: 14px;
+    color: #0366d6;
+    font-weight: 600;
+}
+
+.login a.forgotPass:hover {
+    color: #0366d6;
+    cursor: pointer;
+}
+
+.panelGrid {
+    display: flex;
+}
+
+.panelRow {
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+.login .signUpPanel {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+.login .signUpPanel label {
+    margin-right: 10px;
+}
+
+.login .errorMessage {
+    background-color: #ffdce0;
+    color: #86181d;
+}
