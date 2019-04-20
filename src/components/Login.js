@@ -1,48 +1,43 @@
 import React from "react";
 import './Login.css'
 import TextDialog from "./TextDialog";
+import {connect} from "react-redux";
+import {authenticateActions} from "../store/authenticateReducer";
 
 class Login extends React.Component{
-  state={
-    showMessage: false,
-    username: '',
-    password: ''
-  };
-
-  login() {
-    const { username, password } = this.state;
-    if(username && password) {
-
-    }
-  }
-
   render(){
-    const { showMessage } = this.state;
+    const { isShowMessageError, hideMessageError,
+      updateLoginInfo, loginInfo, login
+    } = this.props;
     return (
       <div className="login">
-        {showMessage &&
-        <TextDialog message="Incorrect Username or Password"
-                    hideDialog={() => this.setState({ showMessage: false })}/>}
         <form className="mainPanel">
           <div className="header">
             Login to jSonar
           </div>
+          {isShowMessageError &&
+          <TextDialog message="Incorrect Username or Password"
+                      hideDialog={() => hideMessageError()}/>}
           <div className="form-group">
             <label>Username</label>
             <input className="form-control"
-                   placeholder="Enter email" />
+                   placeholder="Enter email"
+                   onChange={e => updateLoginInfo({...loginInfo, username: e.target.value})}
+            />
           </div>
           <div className="form-group">
             <div className="panelGrid panelRow">
               <label>Password</label>
               <a className="forgotPass">Forgot password</a>
             </div>
-            <input type="password" className="form-control"
-                   placeholder="Password" />
+            <input type="password"
+                   className="form-control"
+                   placeholder="Password"
+                   onChange={e => updateLoginInfo({...loginInfo, password: e.target.value})} />
           </div>
           <button type="button"
                   className="btn loginButton"
-                  onClick={() => this.login()}
+                  onClick={() => login(loginInfo)}
           >
             Log In
           </button>
@@ -56,4 +51,7 @@ class Login extends React.Component{
   }
 }
 
-export default Login;
+export default connect(
+  state => state.authenticate,
+  authenticateActions
+)(Login);

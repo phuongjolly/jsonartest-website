@@ -65,4 +65,9 @@
 .login .errorMessage {
     background-color: #ffdce0;
     color: #86181d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
 }
