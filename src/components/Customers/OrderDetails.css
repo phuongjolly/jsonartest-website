@@ -1,0 +1,70 @@
+.orderDetails {
+    width: 70%;
+}
+
+.orderDetails th {
+    background-color: #fff;
+    color: #2717c9;
+    border-top: none;
+}
+
+.orderDetails th:hover, td:hover {
+    cursor: pointer;
+}
+
+.orderDetails th i {
+    transform: rotate(90deg);
+    color: #d8dee2;
+    font-size: 12px;
+}
+
+.orderDetails button{
+    font-size: 13px;
+}
+
+.orderDetails tbody td.comments {
+    max-width: 150px;
+}
+
+.orderDetails tr.invoice {
+    background-color: #ecf0f8;
+}
+
+.orderDetails .table-striped .invoice tbody tr {
+    background-color: #fff;
+}
+
+.orderDetails td i{
+    transition-duration: 0.25s;
+    transform: rotate(-90deg);
+}
+
+.orderDetails td.selected i{
+    transition-duration: 0.25s;
+    transform: none;
+}
+
+.invoice table th {
+    color: #6c7293;
+}
+
+.invoice .totalAmount {
+    background-color: #fff;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+    font-weight: 600;
+}
+
+.invoice .totalAmount table {
+    width: 40%;
+}
+
+.invoice .totalAmount table tr td {
+    padding: 5px;
+}
+
+.totalAmount table tr.sumUp {
+    border-top: 1px solid #d8dee2;
+    text-transform: uppercase;
+}

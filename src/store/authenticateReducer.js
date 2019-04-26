@@ -24,7 +24,7 @@ export default function authenticationReducer(state = initialState, action) {
     case LOGIN: {
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     }
     case LOGIN_SUCCESSFUL: {
@@ -32,27 +32,27 @@ export default function authenticationReducer(state = initialState, action) {
         ...state,
         isLoading: false,
         currentUser: action.data,
-        isAuthenticated: true
-      }
+        isAuthenticated: true,
+      };
     }
     case LOGIN_FAILED: {
       return {
         ...state,
         isLoading: false,
         currentUser: null,
-        isShowMessageError: true
-      }
+        isShowMessageError: true,
+      };
     }
     case UPDATE_LOGIN_INFO: {
       return {
         ...state,
-        loginInfo: action.data
+        loginInfo: action.data,
       };
     }
     case HIDE_MESSAGE_ERROR: {
       return {
         ...state,
-        isShowMessageError: false
+        isShowMessageError: false,
       };
     }
     case LOAD_USER_FROM_TOKEN: {
@@ -73,19 +73,14 @@ export default function authenticationReducer(state = initialState, action) {
       return {
         ...state,
         isLoading: false,
-        currentUser: {
-          username: '',
-          password: '',
-        },
+        currentUser: null,
       };
     }
     case LOGOUT: {
       return {
         ...state,
-        currentUser: {
-          username: '',
-          password: '',
-        },
+        currentUser: null,
+        isAuthenticated: false,
       };
     }
     default: return state;
@@ -95,46 +90,47 @@ export default function authenticationReducer(state = initialState, action) {
 export const authenticateActions = {
   login(loginInfo) {
     return async (dispatch) => {
-      if(!(loginInfo && loginInfo.username && loginInfo.password)) {
+      if (!(loginInfo && loginInfo.username && loginInfo.password)) {
         return dispatch({
-          type: LOGIN_FAILED
+          type: LOGIN_FAILED,
         });
       }
 
       dispatch({
-        type: LOGIN
+        type: LOGIN,
       });
 
       try {
         const response = await fetch('/api/v1/login', {
           method: 'POST',
-          body: JSON.stringify({username: loginInfo.username, password: loginInfo.password}),
+          body: JSON.stringify({ username: loginInfo.username, password: loginInfo.password }),
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
-          }
+          },
         });
 
         const data = await response.json();
-        if(data.user) {
+        if (data.user) {
+          // eslint-disable-next-line no-undef
           sessionStorage.setItem('jwtToken', data.token);
           dispatch({
             type: LOGIN_SUCCESSFUL,
-            data: data.user
+            data: data.user,
           });
         } else {
           dispatch({
-            type: LOGIN_FAILED
+            type: LOGIN_FAILED,
           });
         }
       } catch (e) {
         console.error(e);
 
         dispatch({
-          type: LOGIN_FAILED
+          type: LOGIN_FAILED,
         });
       }
-    }
+    };
   },
   updateLoginInfo(loginInfo) {
     return {
@@ -144,7 +140,7 @@ export const authenticateActions = {
   },
   hideMessageError() {
     return {
-      type: HIDE_MESSAGE_ERROR
+      type: HIDE_MESSAGE_ERROR,
     };
   },
   loadUserFromToken() {
@@ -166,7 +162,7 @@ export const authenticateActions = {
           const data = await response.json();
           dispatch({
             type: LOAD_USER_FROM_TOKEN_SUCCESSFUL,
-            data: {username: data.username},
+            data: { username: data.username },
           });
         } else {
           throw new Error('Token is null');

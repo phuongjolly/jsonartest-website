@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import Login from "./components/Login";
-import {createBrowserHistory} from "history";
-import {Redirect, Route, Router, Switch} from "react-router";
-import Customers from "./components/Customers";
-import {authenticateActions} from "./store/authenticateReducer";
-import {connect} from "react-redux";
-import Header from "./components/Header";
+import { createBrowserHistory } from 'history';
+import {
+  Redirect, Route, Router, Switch,
+} from 'react-router';
+import { connect } from 'react-redux';
+import Login from './components/Authentication/Login';
+import Customers from './components/Customers/Customers';
+import { authenticateActions } from './store/authenticateReducer';
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import Footer from './components/Footer';
 
 const customHistory = createBrowserHistory();
 
@@ -22,11 +26,17 @@ class App extends Component {
         <div>
           {isAuthenticated ? (
             <div>
-              <Header/>
-              <Switch>
-                <Route path="/customers" component={Customers} />
-                <Redirect to="/customers" />
-              </Switch>
+              <Header />
+              <div className="wrapper">
+                <div className="leftContent"><Sidebar /></div>
+                <div className="rightContent">
+                  <Switch>
+                    <Route path="/customers/:customerNumber?" component={Customers} />
+                    <Redirect to="/customers" />
+                  </Switch>
+                  <Footer />
+                </div>
+              </div>
             </div>
           ) : (
             <Switch>
@@ -41,5 +51,5 @@ class App extends Component {
 
 export default connect(
   state => state.authenticate,
-  authenticateActions
+  authenticateActions,
 )(App);

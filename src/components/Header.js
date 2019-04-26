@@ -8,7 +8,7 @@ function Header({ currentUser }) {
     <div className="header-container">
       <div className="brand">Sample</div>
       <div className="dropdown">
-        <a
+        <div
           className="dropdown-toggle"
           id="dropdownMenuButton"
           data-toggle="dropdown"
@@ -21,7 +21,7 @@ function Header({ currentUser }) {
             <span className="avatar">
             <img src="https://semantic-ui.com/images/avatar/small/elliot.jpg" />
           </span>
-        </a>
+        </div>
         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton" role="menu">
           <a className="dropdown-item" href="#" role="menuitem">
             <i className="fas fa-user" />

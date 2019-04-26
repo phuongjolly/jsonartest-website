@@ -1,3 +1,22 @@
-.App {
-  text-align: center;
+.wrapper {
+  background-color: #ecf0f8;
+  display: flex;
+  flex-flow: row;
+  justify-content: stretch;
+  position: relative;
+  top: 70px;
 }
+
+.wrapper .leftContent {
+  width: 15%;
+  background: linear-gradient(to bottom, #371c79, #482fd1, #371c79);
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  padding: 0;
+  color: #fff;
+}
+
+.wrapper .rightContent {
+  flex-grow: 1;
+}
+
