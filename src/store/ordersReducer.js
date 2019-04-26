@@ -118,7 +118,8 @@ export const ordersActions = {
         if (token) {
           const response = await fetch(
             `/api/v1/orders?customerNumber=${customerNumber}`
-            + `&page=${page}&pageSize=${pageSize}&sortBy=${sortBy}&order=${order ? 'asc' : 'desc'}`,
+            + `&page=${page}&pageSize=${pageSize}&sortBy=${sortBy || 'orderDate'}`
+            + `&order=${order ? 'asc' : 'desc'}`,
             {
               headers: {
                 authorization: `bearer ${token}`,
