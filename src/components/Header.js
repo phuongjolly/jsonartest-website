@@ -9,18 +9,20 @@ function Header({ currentUser, logout }) {
       <div className="brand">Sample</div>
       <div className="dropdown">
         <div
-          className="dropdown-toggle"
+          className="dropdown-toggle profile"
           id="dropdownMenuButton"
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
         >
-          <span>
-            {currentUser && currentUser.username}
-          </span>
           <span className="avatar">
-            <img alt="avatar"
-              src="https://krjogja.com/kr-admin//files/news/image_1/32621/Swift%2090.jpg" />
+            <img
+              alt="avatar"
+              src="https://semantic-ui.com/images/avatar/small/jenny.jpg"
+            />
+          </span>
+          <span className="profileName">
+            {currentUser && currentUser.username}
           </span>
         </div>
         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton" role="menu">

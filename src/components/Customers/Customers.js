@@ -51,7 +51,6 @@ class Customers extends React.Component {
             {
               showOrderDetails && (
                 <div className="filterBy">
-                  <span>Filter by</span>
                   <div className="dropdown">
                     <div
                       className="dropdown-toggle"
@@ -60,10 +59,11 @@ class Customers extends React.Component {
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      <i className="fas fa-filter" />
+                      <span>Filter by</span>
                     </div>
                     <CustomerFilters
                       showOrderDetails={showOrderDetails}
+                      filter={filter}
                       fetch={obj => loadCustomers({ ...filter, ...obj })}
                     />
                   </div>
@@ -77,6 +77,7 @@ class Customers extends React.Component {
               data={customers}
               history={history}
               selectedCustomer={customerNumber}
+              filter={filter}
               fetch={obj => loadCustomers({ ...filter, ...obj })}
             />
             <div>

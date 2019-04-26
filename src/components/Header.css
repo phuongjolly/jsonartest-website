@@ -23,23 +23,31 @@
 
 .header .avatar {
     display: inline-block;
-    width: 60px;
-    white-space: nowrap;
-    vertical-align: bottom;
-    border-radius: 1000px;
 }
 
 .header .avatar img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    border: 0 none;
-    border-radius: 1000px;
+    width: 25px;
+    height: 25px;
+    border-radius: 4px;
 }
 
+.header .profile {
+    border: 1px solid #f2f2f2;
+    padding: 5px;
+}
+
+.header .profile .profileName {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.header .dropdown:hover {
+    cursor: pointer;
+}
 .header .dropdown-menu {
     background-color: #fff;
-    border: 1px solid #e4eaec;
+    box-shadow: 0px 3px 21px 0px rgba(0, 0, 0, 0.2);
+    border: none;
     right: 0;
     left: auto;
     padding: 10px;
@@ -48,6 +56,7 @@
 .header .dropdown-item {
     background: 0 0;
     border: 0;
+    padding: 10px;
 }
 
 .header span.dropdown-item {

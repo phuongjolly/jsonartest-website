@@ -7,6 +7,7 @@ function CustomersTable({
   history,
   fetch,
   selectedCustomer,
+  filter
 }) {
   console.log(showOrderDetails);
   return (
@@ -23,7 +24,10 @@ function CustomersTable({
       </thead>
       <tbody>
         {!showOrderDetails && (
-          <CustomerFilters fetch={filter => fetch(filter)} showOrderDetails={showOrderDetails} />
+          <CustomerFilters
+            filter={filter}
+            fetch={f => fetch(f)}
+            showOrderDetails={showOrderDetails} />
         )}
         {data && data.length > 0 && data.map(item => (
           <tr

@@ -148,6 +148,13 @@
     height: auto;
 }
 
+.filterBy .dropdown {
+    color: #212529;
+}
+.filterBy .dropdown:hover {
+    cursor: pointer;
+}
+
 @media only screen
 and (max-device-width : 500px) {
     .wrapper {
