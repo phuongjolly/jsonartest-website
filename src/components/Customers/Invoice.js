@@ -40,7 +40,7 @@ export default function Invoice({ data }) {
                     </tr>
                     <tr>
                       <td>Vat</td>
-                      <td>15%</td>
+                      <td>0%</td>
                     </tr>
                     <tr className="sumUp">
                       <td>Total amount</td>

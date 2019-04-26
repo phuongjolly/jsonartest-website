@@ -87,6 +87,7 @@ class Customers extends React.Component {
                 onChange={currentPage => loadCustomers(filter, currentPage - 1, pageSize)}
                 current={page + 1}
                 total={count}
+                pageSize={pageSize}
                 showLessItems
                 showTitle={false}
               />
