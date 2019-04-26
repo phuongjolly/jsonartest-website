@@ -1,4 +1,4 @@
-.header-container {
+.header {
     padding: 15px;
     margin-right: auto;
     margin-left: auto;
@@ -6,27 +6,30 @@
     flex-flow: row;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top: 0;
     right: 0;
     left: 0;
     z-index: 1500;
     color: #2717c9;
     font-weight: 500;
+    background-color: #fff;
 }
 
-.header-container .brand {
+.header .brand {
     font-size: 16px;
     font-weight: bold;
 }
 
-.header-container .avatar {
+.header .avatar {
     display: inline-block;
-    width: 40px;
+    width: 60px;
     white-space: nowrap;
     vertical-align: bottom;
     border-radius: 1000px;
 }
 
-.header-container .avatar img {
+.header .avatar img {
     width: 100%;
     max-width: 100%;
     height: auto;
@@ -34,7 +37,7 @@
     border-radius: 1000px;
 }
 
-.header-container .dropdown-menu {
+.header .dropdown-menu {
     background-color: #fff;
     border: 1px solid #e4eaec;
     right: 0;
@@ -42,23 +45,24 @@
     padding: 10px;
 }
 
-.header-container .dropdown-item {
+.header .dropdown-item {
     background: 0 0;
     border: 0;
 }
 
-.header-container a.dropdown-item {
+.header span.dropdown-item {
     text-decoration: none;
     font-weight: 300;
     line-height: 22px;
     font-size: 14px;
 }
 
-.header-container a.dropdown-item i {
+.header span.dropdown-item i {
     margin-right: 10px;
     font-size: 14px;
 }
 
-.header-container a.dropdown-item:hover {
+.header span.dropdown-item:hover {
     background-color: #e4eaec;
+    cursor: pointer;
 }

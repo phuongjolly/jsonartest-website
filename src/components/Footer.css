@@ -1,0 +1,11 @@
+.footer {
+    background: #ecf0f8;
+    padding: 30px 2.375rem;
+    transition: all 0.25s ease;
+    font-size: calc(0.875rem - 0.05rem);
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    color: #6c7293;
+    margin-top: 10px;
+}

@@ -1,9 +1,9 @@
 .login {
-    max-width: 350px;
+    max-width: 300px;
     margin: 50px auto;
 }
 
-.login .header {
+.login .formHeader {
     text-align: center;
     font-weight: 700;
     margin-bottom: 30px;
@@ -12,7 +12,7 @@
 .login .mainPanel {
     background-color: #fff;
     border: 1px solid #d8dee2;
-    padding: 20px;
+    padding: 30px 20px;
     border-radius: 5px;
     margin-bottom: 20px;
 }
@@ -20,9 +20,9 @@
 .login .loginButton {
     width: 100%;
     margin-top: 10px;
-    background-color: #586b90;
-    border-color: #586b90;
     color: #fff;
+    background-color: #2717c9;
+    border-color: #2717c9;
 }
 
 .login label {
@@ -56,6 +56,7 @@
     display: flex;
     flex-flow: row;
     justify-content: center;
+    font-size: 14px;
 }
 
 .login .signUpPanel label {
