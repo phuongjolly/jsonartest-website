@@ -18,6 +18,10 @@
     font-size: 14px;
 }
 
+.login .mainPanel .form-control {
+    font-size: 14px;
+}
+
 .login .loginButton {
     width: 100%;
     margin-top: 10px;
