@@ -12,18 +12,12 @@ spec:
       maxUnavailable: 0
     type: RollingUpdate
   template:
-    metadata:
-      annotations:
-        cattle.io/timestamp: "2019-04-26T05:31:44Z"
-      creationTimestamp: null
-      labels:
-        workload.user.cattle.io/workloadselector: deployment-beta-sonar-website
     spec:
       containers:
         - env:
           - name: MYSQL_HOST
             value: mysql
-          image: phuongjolly/sonar-api
+          image: phuongjolly/sonar-website
           name: sonar-website
           resources: {}
           securityContext:
