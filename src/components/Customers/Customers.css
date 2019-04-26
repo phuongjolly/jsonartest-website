@@ -127,6 +127,28 @@
     margin: 0 10px;
 }
 
+.customersPanel .content .tableFooter {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.customersPanel.short .content .tableFooter {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+}
+
+.customersPanel .content .tableFooter ul {
+    margin-bottom: unset;
+}
+
+.customersPanel.short .content .tableFooter span {
+    margin-bottom: 10px;
+}
+
 .filterBy .dropdown-menu {
     font-size: 12px;
 }

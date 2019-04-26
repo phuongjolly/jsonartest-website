@@ -2,7 +2,8 @@ import React from 'react';
 import './Customers.css';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import Pagination from 'react-js-pagination';
+import Pagination from 'rc-pagination';
+import 'rc-pagination/assets/index.css';
 import { customersActions } from '../../store/customersReducer';
 import OrderDetails from './OrderDetails';
 import CustomSelection from './CustomSelection';
@@ -80,15 +81,14 @@ class Customers extends React.Component {
               filter={filter}
               fetch={obj => loadCustomers({ ...filter, ...obj })}
             />
-            <div>
+            <div className="tableFooter">
               <span>{`Showing ${page * pageSize + 1} to ${(page + 1) * pageSize} of ${count}` }</span>
               <Pagination
-                hideFirstLastPages
-                pageRangeDisplayed={5}
-                activePage={page}
-                itemsCountPerPage={pageSize}
-                totalItemsCount={count}
-                onChange={() => loadCustomers(null, page + 1, pageSize)}
+                onChange={currentPage => loadCustomers(filter, currentPage - 1, pageSize)}
+                current={page + 1}
+                total={count}
+                showLessItems
+                showTitle={false}
               />
             </div>
           </div>
