@@ -6,12 +6,20 @@ metadata:
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      workload.user.cattle.io/workloadselector: deployment-beta-sonar-website
   strategy:
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 0
     type: RollingUpdate
   template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        workload.user.cattle.io/workloadselector: deployment-beta-sonar-website
     spec:
       containers:
         - env:
