@@ -1,23 +1,11 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  annotations:
-    deployment.kubernetes.io/revision: "1"
-    field.cattle.io/creatorId: user-hwkxq
-  creationTimestamp: "2019-04-26T05:31:44Z"
-  generation: 1
-  labels:
-    cattle.io/creator: norman
-    workload.user.cattle.io/workloadselector: deployment-beta-sonar-website
   name: sonar-website
   namespace: beta
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
-  revisionHistoryLimit: 10
-  selector:
-    matchLabels:
-      workload.user.cattle.io/workloadselector: deployment-beta-sonar-website
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -32,8 +20,10 @@ spec:
         workload.user.cattle.io/workloadselector: deployment-beta-sonar-website
     spec:
       containers:
-        - image: phuongjolly/sonar-website
-          imagePullPolicy: Always
+        - env:
+          - name: MYSQL_HOST
+            value: mysql
+          image: phuongjolly/sonar-api
           name: sonar-website
           resources: {}
           securityContext:
